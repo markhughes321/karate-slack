@@ -1,4 +1,3 @@
-// PrintKarateReports.java
 package examples;
 
 import java.io.File;
@@ -6,6 +5,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class PrintKarateReports {
 
@@ -21,18 +24,36 @@ public class PrintKarateReports {
             System.out.println("- " + file.getName());
         }
 
-        // Rename karate-summary-json.txt to slack-report.json and export to target folder
-        String summaryFilePath = karateReportsPath + "/karate-summary-json.txt";
-        File summaryFile = new File(summaryFilePath);
-        if (summaryFile.exists()) {
-            Path sourcePath = Paths.get(summaryFilePath);
-            Path targetPath = Paths.get("target/slack-report.json");
+        // Create JSON object with report contents in attachments array
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode json = mapper.createObjectNode();
+        json.put("channel", "CBR2V3XEX");
+        ArrayNode attachments = mapper.createArrayNode();
+        String reportFilePath = karateReportsPath + "/karate-summary-json.txt";
+        File reportFile = new File(reportFilePath);
+        if (reportFile.exists()) {
             try {
-                Files.move(sourcePath, targetPath);
-                System.out.println("Renamed and exported summary file to " + targetPath.toString());
+                String reportContents = new String(Files.readAllBytes(reportFile.toPath()));
+                ObjectNode attachment = mapper.createObjectNode();
+                attachment.put("text", reportContents);
+                attachments.add(attachment);
+                json.set("attachments", attachments);
             } catch (IOException e) {
-                System.out.println("Failed to rename and export summary file: " + e.getMessage());
+                System.out.println("Failed to read Karate report: " + e.getMessage());
+                return;
             }
+        } else {
+            System.out.println("Karate report file not found");
+            return;
+        }
+
+        // Write JSON object to Slack report file
+        File slackReportFile = new File("target/slack-report.json");
+        try {
+            mapper.writerWithDefaultPrettyPrinter().writeValue(slackReportFile, json);
+            System.out.println("Slack report generated at " + slackReportFile.getAbsolutePath());
+        } catch (IOException e) {
+            System.out.println("Failed to write Slack report: " + e.getMessage());
         }
     }
 }
