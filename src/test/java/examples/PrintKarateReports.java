@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -24,36 +25,36 @@ public class PrintKarateReports {
             System.out.println("- " + file.getName());
         }
 
-        // Create JSON object with report contents in attachments array
-        ObjectMapper mapper = new ObjectMapper();
-        ObjectNode json = mapper.createObjectNode();
-        json.put("channel", "D04UXS4QMGR");
-        ArrayNode attachments = mapper.createArrayNode();
-        String reportFilePath = karateReportsPath + "/karate-summary-json.txt";
-        File reportFile = new File(reportFilePath);
-        if (reportFile.exists()) {
+        // Read contents of Karate report file
+        String summaryFilePath = karateReportsPath + "/karate-summary-json.txt";
+        File summaryFile = new File(summaryFilePath);
+        if (summaryFile.exists()) {
             try {
-                String reportContents = new String(Files.readAllBytes(reportFile.toPath()));
+                String reportContents = new String(Files.readAllBytes(summaryFile.toPath()));
+                System.out.println("Karate report contents:\n" + reportContents);
+
+                // Convert report contents to JSON object
+                ObjectMapper mapper = new ObjectMapper();
+                JsonNode reportJson = mapper.readTree(reportContents);
+
+                // Create Slack report JSON object with report contents in attachments array
+                ObjectNode slackJson = mapper.createObjectNode();
+                slackJson.put("channel", "CBR2V3XEX");
+                ArrayNode attachments = mapper.createArrayNode();
                 ObjectNode attachment = mapper.createObjectNode();
-                attachment.put("text", reportContents);
+                attachment.setAll((ObjectNode) reportJson);
                 attachments.add(attachment);
-                json.set("attachments", attachments);
+                slackJson.set("attachments", attachments);
+
+                // Write Slack report JSON object to file
+                File slackReportFile = new File("target/slack-report.json");
+                mapper.writerWithDefaultPrettyPrinter().writeValue(slackReportFile, slackJson);
+                System.out.println("Slack report generated at " + slackReportFile.getAbsolutePath());
             } catch (IOException e) {
-                System.out.println("Failed to read Karate report: " + e.getMessage());
-                return;
+                System.out.println("Failed to read or write report: " + e.getMessage());
             }
         } else {
             System.out.println("Karate report file not found");
-            return;
-        }
-
-        // Write JSON object to Slack report file
-        File slackReportFile = new File("target/slack-report.json");
-        try {
-            mapper.writerWithDefaultPrettyPrinter().writeValue(slackReportFile, json);
-            System.out.println("Slack report generated at " + slackReportFile.getAbsolutePath());
-        } catch (IOException e) {
-            System.out.println("Failed to write Slack report: " + e.getMessage());
         }
     }
 }
