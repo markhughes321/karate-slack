@@ -27,7 +27,7 @@ public class PrintKarateReports {
         // Create JSON object with report contents in attachments array
         ObjectMapper mapper = new ObjectMapper();
         ObjectNode json = mapper.createObjectNode();
-        json.put("channel", "CBR2V3XEX");
+        json.put("channel", "D04UXS4QMGR");
         ArrayNode attachments = mapper.createArrayNode();
         String reportFilePath = karateReportsPath + "/karate-summary-json.txt";
         File reportFile = new File(reportFilePath);
