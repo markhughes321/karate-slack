@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.tablesorter.min.js"></script>
+<script src="js/Chart.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+<link rel="stylesheet" href="css/cucumber.css" type="text/css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="shortcut icon" href="images/favicon.png"/>
+
+<script>
+$(document).ready(function() {
+    // this will tell tablesorter to try looking for the data-value attribute
+    // if present, it'll sort by that instead
+    // otherwise, it'll sort by the text content of the table cell
+    $("#tablesorter").tablesorter({
+        textAttribute: 'data-value',
+        // ignores the first row of the header, the 'scenario', 'steps', since
+        // sorting those doesn't make sense
+        selectorHeaders: '> thead tr:not(.dont-sort) th',
+        // use a stable sort
+        sortStable: true
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<title>Cucumber Reports  - Feature: examples/users/users.feature</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <p class="navbar-text navbar-left">Cucumber Report</p>
+      <ul class="nav navbar-nav navbar-right">
+        <li role="presentation" ><a href="overview-features.html">Features</a></li>
+        <li role="presentation" ><a href="overview-tags.html">Tags</a></li>
+        <li role="presentation" ><a href="overview-steps.html">Steps</a></li>
+        <li role="presentation" ><a href="overview-failures.html">Failures</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="col-md-5 col-md-offset-1">
+
+<table class="table table-bordered" id="build-info">
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="info">
+      <td>API Testing - Websites</td>
+      <td>18 Mar 2023, 23:06</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="col-md-3 col-md-offset-2">
+  </div>
+</div>
+
+
+<div id="report-lead" class="container-fluid">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>Feature Report</h2>
+  </div>
+</div>
+
+
+<div class="container-fluid" id="report">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table class="stats-table">
+
+
+<thead>
+  <tr class="header dont-sort">
+      <th></th>
+    <th colspan="6">Steps</th>
+    <th colspan="3">Scenarios</th>
+    <th colspan="2">Features</th>
+  </tr>
+  <tr>
+    <th>Feature</th>
+    <th class="passed">Passed</th>
+    <th class="failed">Failed</th>
+    <th class="skipped">Skipped</th>
+    <th class="pending">Pending</th>
+    <th class="undefined">Undefined</th>
+    <th class="total">Total</th>
+
+    <th class="passed">Passed</th>
+    <th class="failed">Failed</th>
+    <th class="total">Total</th>
+
+    <th>Duration</th>
+    <th>Status</th>
+  </tr>
+</thead>
+
+
+        <tbody>
+        <tr>
+          <td class="tagname">examples/users/users.feature</td>
+          <td      class="passed"    >17</td>
+          <td >0</td>
+          <td >0</td>
+          <td >0</td>
+          <td >0</td>
+          <td class="total">17</td>
+
+          <td  class="passed"    >2</td>
+          <td >0</td>
+          <td class="total">2</td>
+
+          <td class="duration" data-value="1857075913">1.857</td>
+          <td class="passed">Passed</td>
+        </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-1 col-md-offset-10">
+      <i class="fa fa-chevron-circle-down fa-2x collapsable-control"
+        onClick="javascript:$('#report .collapsable-details').collapse('show')"></i>
+      <i class="fa fa-chevron-circle-up fa-2x collapsable-control"
+        onClick="javascript:$('#report .collapsable-details').collapse('hide')"></i>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid" id="report">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="feature">
+
+<div class="tags indention">
+</div>
+
+
+<div class="brief passed">
+  <span class="keyword indention">Feature</span>
+  <span class="name">examples/users/users.feature</span>
+
+
+</div>
+
+        <div class="description indention">sample karate test script
+for help, see: https://github.com/intuit/karate/wiki/IDE-Support</div>
+
+        <div class="elements inner-level">
+
+<div class="element">
+
+
+<div class="tags indention">
+</div>
+
+
+  <span class="lead-duration duration">0.004</span>
+
+
+  <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-1">
+
+<div class="brief passed">
+  <span class="keyword indention">Background</span>
+  <span class="name"></span>
+
+
+     <i class="chevron fa fa-fw"></i>
+</div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-1" class="collapse collapsable-details ">
+
+
+
+
+
+<div class="steps inner-level">
+  <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-2">
+
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+
+
+     <i class="chevron fa fa-fw"></i>
+</div>
+
+  </div>
+
+  <div id="steps-2" class="inner-level collapse collapsable-details ">
+      <div class="step">
+
+
+<div class="brief step-name-* passed">
+  <span class="keyword indention">*</span>
+  <span class="name">url 'https://jsonplaceholder.typicode.com'</span>
+
+  <span class="lead-duration duration">0.004</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+  <div class="inner-level">
+    <div class="docstring indention">
+      <div data-toggle="collapse" class="collapsable-control" data-target="#msg-3">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-3" class="collapse collapsable-details">
+        <pre>23:06:08.455 karate.env system property was: null 
+</pre>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+      </div>
+  </div>
+</div>
+
+
+
+
+
+  </div>
+</div>
+
+
+<div class="element">
+
+
+<div class="tags indention">
+</div>
+
+
+  <span class="lead-duration duration">0.898</span>
+
+
+  <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-4">
+
+<div class="brief passed">
+  <span class="keyword indention">Scenario</span>
+  <span class="name">get all users and then get the first user by id</span>
+
+
+     <i class="chevron fa fa-fw"></i>
+</div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-4" class="collapse collapsable-details ">
+
+
+
+
+
+<div class="steps inner-level">
+  <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-5">
+
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+
+
+     <i class="chevron fa fa-fw"></i>
+</div>
+
+  </div>
+
+  <div id="steps-5" class="inner-level collapse collapsable-details ">
+      <div class="step">
+
+
+<div class="brief step-name-Given passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">path 'users'</span>
+
+  <span class="lead-duration duration">0.000</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-When passed">
+  <span class="keyword indention">When</span>
+  <span class="name">method get</span>
+
+  <span class="lead-duration duration">0.776</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+  <div class="inner-level">
+    <div class="docstring indention">
+      <div data-toggle="collapse" class="collapsable-control" data-target="#msg-6">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-6" class="collapse collapsable-details">
+        <pre>23:06:08.844 request:
+1 &gt; GET https://jsonplaceholder.typicode.com/users
+1 &gt; Host: jsonplaceholder.typicode.com
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.13 (Java/11.0.14)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+23:06:09.250 response time in milliseconds: 402
+1 &lt; 200
+1 &lt; Date: Sat, 18 Mar 2023 23:06:09 GMT
+1 &lt; Content-Type: application/json; charset=utf-8
+1 &lt; Transfer-Encoding: chunked
+1 &lt; Connection: keep-alive
+1 &lt; X-Powered-By: Express
+1 &lt; X-Ratelimit-Limit: 1000
+1 &lt; X-Ratelimit-Remaining: 999
+1 &lt; X-Ratelimit-Reset: 1677697368
+1 &lt; Vary: Origin, Accept-Encoding
+1 &lt; Access-Control-Allow-Credentials: true
+1 &lt; Cache-Control: max-age=43200
+1 &lt; Pragma: no-cache
+1 &lt; Expires: -1
+1 &lt; X-Content-Type-Options: nosniff
+1 &lt; Etag: W/&quot;160d-1eMSsxeJRfnVLRBmYJSbCiJZ1qQ&quot;
+1 &lt; Via: 1.1 vegur
+1 &lt; CF-Cache-Status: HIT
+1 &lt; Age: 26844
+1 &lt; Server-Timing: cf-q-config;dur=5.9999874792993e-06
+1 &lt; Report-To: {&quot;endpoints&quot;:[{&quot;url&quot;:&quot;https:\/\/a.nel.cloudflare.com\/report\/v3?s=a88XHAvyFT%2BKL8Br5Fgjbeev1vRBju9aW1MuX7GLAPwj3%2B9AQFxt5qsIyWtfqifx016Gaej481ccMJwTAEAEMDIraEyIOfaDGgBfFG0cmUTuowAQNA4S9wckWE2FJU6NufLyHWsMK48ZAjIF2a1t&quot;}],&quot;group&quot;:&quot;cf-nel&quot;,&quot;max_age&quot;:604800}
+1 &lt; NEL: {&quot;success_fraction&quot;:0,&quot;report_to&quot;:&quot;cf-nel&quot;,&quot;max_age&quot;:604800}
+1 &lt; Server: cloudflare
+1 &lt; CF-RAY: 7aa11fdfcbed9552-DUB
+1 &lt; alt-svc: h3=&quot;:443&quot;; ma=86400, h3-29=&quot;:443&quot;; ma=86400
+[
+  {
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;Leanne Graham&quot;,
+    &quot;username&quot;: &quot;Bret&quot;,
+    &quot;email&quot;: &quot;Sincere@april.biz&quot;,
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;Kulas Light&quot;,
+      &quot;suite&quot;: &quot;Apt. 556&quot;,
+      &quot;city&quot;: &quot;Gwenborough&quot;,
+      &quot;zipcode&quot;: &quot;92998-3874&quot;,
+      &quot;geo&quot;: {
+        &quot;lat&quot;: &quot;-37.3159&quot;,
+        &quot;lng&quot;: &quot;81.1496&quot;
+      }
+    },
+    &quot;phone&quot;: &quot;1-770-736-8031 x56442&quot;,
+    &quot;website&quot;: &quot;hildegard.org&quot;,
+    &quot;company&quot;: {
+      &quot;name&quot;: &quot;Romaguera-Crona&quot;,
+      &quot;catchPhrase&quot;: &quot;Multi-layered client-server neural-net&quot;,
+      &quot;bs&quot;: &quot;harness real-time e-markets&quot;
+    }
+  },
+  {
+    &quot;id&quot;: 2,
+    &quot;name&quot;: &quot;Ervin Howell&quot;,
+    &quot;username&quot;: &quot;Antonette&quot;,
+    &quot;email&quot;: &quot;Shanna@melissa.tv&quot;,
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;Victor Plains&quot;,
+      &quot;suite&quot;: &quot;Suite 879&quot;,
+      &quot;city&quot;: &quot;Wisokyburgh&quot;,
+      &quot;zipcode&quot;: &quot;90566-7771&quot;,
+      &quot;geo&quot;: {
+        &quot;lat&quot;: &quot;-43.9509&quot;,
+        &quot;lng&quot;: &quot;-34.4618&quot;
+      }
+    },
+    &quot;phone&quot;: &quot;010-692-6593 x09125&quot;,
+    &quot;website&quot;: &quot;anastasia.net&quot;,
+    &quot;company&quot;: {
+      &quot;name&quot;: &quot;Deckow-Crist&quot;,
+      &quot;catchPhrase&quot;: &quot;Proactive didactic contingency&quot;,
+      &quot;bs&quot;: &quot;synergize scalable supply-chains&quot;
+    }
+  },
+  {
+    &quot;id&quot;: 3,
+    &quot;name&quot;: &quot;Clementine Bauch&quot;,
+    &quot;username&quot;: &quot;Samantha&quot;,
+    &quot;email&quot;: &quot;Nathan@yesenia.net&quot;,
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;Douglas Extension&quot;,
+      &quot;suite&quot;: &quot;Suite 847&quot;,
+      &quot;city&quot;: &quot;McKenziehaven&quot;,
+      &quot;zipcode&quot;: &quot;59590-4157&quot;,
+      &quot;geo&quot;: {
+        &quot;lat&quot;: &quot;-68.6102&quot;,
+        &quot;lng&quot;: &quot;-47.0653&quot;
+      }
+    },
+    &quot;phone&quot;: &quot;1-463-123-4447&quot;,
+    &quot;website&quot;: &quot;ramiro.info&quot;,
+    &quot;company&quot;: {
+      &quot;name&quot;: &quot;Romaguera-Jacobson&quot;,
+      &quot;catchPhrase&quot;: &quot;Face to face bifurcated interface&quot;,
+      &quot;bs&quot;: &quot;e-enable strategic applications&quot;
+    }
+  },
+  {
+    &quot;id&quot;: 4,
+    &quot;name&quot;: &quot;Patricia Lebsack&quot;,
+    &quot;username&quot;: &quot;Karianne&quot;,
+    &quot;email&quot;: &quot;Julianne.OConner@kory.org&quot;,
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;Hoeger Mall&quot;,
+      &quot;suite&quot;: &quot;Apt. 692&quot;,
+      &quot;city&quot;: &quot;South Elvis&quot;,
+      &quot;zipcode&quot;: &quot;53919-4257&quot;,
+      &quot;geo&quot;: {
+        &quot;lat&quot;: &quot;29.4572&quot;,
+        &quot;lng&quot;: &quot;-164.2990&quot;
+      }
+    },
+    &quot;phone&quot;: &quot;493-170-9623 x156&quot;,
+    &quot;website&quot;: &quot;kale.biz&quot;,
+    &quot;company&quot;: {
+      &quot;name&quot;: &quot;Robel-Corkery&quot;,
+      &quot;catchPhrase&quot;: &quot;Multi-tiered zero tolerance productivity&quot;,
+      &quot;bs&quot;: &quot;transition cutting-edge web services&quot;
+    }
+  },
+  {
+    &quot;id&quot;: 5,
+    &quot;name&quot;: &quot;Chelsey Dietrich&quot;,
+    &quot;username&quot;: &quot;Kamren&quot;,
+    &quot;email&quot;: &quot;Lucio_Hettinger@annie.ca&quot;,
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;Skiles Walks&quot;,
+      &quot;suite&quot;: &quot;Suite 351&quot;,
+      &quot;city&quot;: &quot;Roscoeview&quot;,
+      &quot;zipcode&quot;: &quot;33263&quot;,
+      &quot;geo&quot;: {
+        &quot;lat&quot;: &quot;-31.8129&quot;,
+        &quot;lng&quot;: &quot;62.5342&quot;
+      }
+    },
+    &quot;phone&quot;: &quot;(254)954-1289&quot;,
+    &quot;website&quot;: &quot;demarco.info&quot;,
+    &quot;company&quot;: {
+      &quot;name&quot;: &quot;Keebler LLC&quot;,
+      &quot;catchPhrase&quot;: &quot;User-centric fault-tolerant solution&quot;,
+      &quot;bs&quot;: &quot;revolutionize end-to-end systems&quot;
+    }
+  },
+  {
+    &quot;id&quot;: 6,
+    &quot;name&quot;: &quot;Mrs. Dennis Schulist&quot;,
+    &quot;username&quot;: &quot;Leopoldo_Corkery&quot;,
+    &quot;email&quot;: &quot;Karley_Dach@jasper.info&quot;,
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;Norberto Crossing&quot;,
+      &quot;suite&quot;: &quot;Apt. 950&quot;,
+      &quot;city&quot;: &quot;South Christy&quot;,
+      &quot;zipcode&quot;: &quot;23505-1337&quot;,
+      &quot;geo&quot;: {
+        &quot;lat&quot;: &quot;-71.4197&quot;,
+        &quot;lng&quot;: &quot;71.7478&quot;
+      }
+    },
+    &quot;phone&quot;: &quot;1-477-935-8478 x6430&quot;,
+    &quot;website&quot;: &quot;ola.org&quot;,
+    &quot;company&quot;: {
+      &quot;name&quot;: &quot;Considine-Lockman&quot;,
+      &quot;catchPhrase&quot;: &quot;Synchronised bottom-line interface&quot;,
+      &quot;bs&quot;: &quot;e-enable innovative applications&quot;
+    }
+  },
+  {
+    &quot;id&quot;: 7,
+    &quot;name&quot;: &quot;Kurtis Weissnat&quot;,
+    &quot;username&quot;: &quot;Elwyn.Skiles&quot;,
+    &quot;email&quot;: &quot;Telly.Hoeger@billy.biz&quot;,
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;Rex Trail&quot;,
+      &quot;suite&quot;: &quot;Suite 280&quot;,
+      &quot;city&quot;: &quot;Howemouth&quot;,
+      &quot;zipcode&quot;: &quot;58804-1099&quot;,
+      &quot;geo&quot;: {
+        &quot;lat&quot;: &quot;24.8918&quot;,
+        &quot;lng&quot;: &quot;21.8984&quot;
+      }
+    },
+    &quot;phone&quot;: &quot;210.067.6132&quot;,
+    &quot;website&quot;: &quot;elvis.io&quot;,
+    &quot;company&quot;: {
+      &quot;name&quot;: &quot;Johns Group&quot;,
+      &quot;catchPhrase&quot;: &quot;Configurable multimedia task-force&quot;,
+      &quot;bs&quot;: &quot;generate enterprise e-tailers&quot;
+    }
+  },
+  {
+    &quot;id&quot;: 8,
+    &quot;name&quot;: &quot;Nicholas Runolfsdottir V&quot;,
+    &quot;username&quot;: &quot;Maxime_Nienow&quot;,
+    &quot;email&quot;: &quot;Sherwood@rosamond.me&quot;,
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;Ellsworth Summit&quot;,
+      &quot;suite&quot;: &quot;Suite 729&quot;,
+      &quot;city&quot;: &quot;Aliyaview&quot;,
+      &quot;zipcode&quot;: &quot;45169&quot;,
+      &quot;geo&quot;: {
+        &quot;lat&quot;: &quot;-14.3990&quot;,
+        &quot;lng&quot;: &quot;-120.7677&quot;
+      }
+    },
+    &quot;phone&quot;: &quot;586.493.6943 x140&quot;,
+    &quot;website&quot;: &quot;jacynthe.com&quot;,
+    &quot;company&quot;: {
+      &quot;name&quot;: &quot;Abernathy Group&quot;,
+      &quot;catchPhrase&quot;: &quot;Implemented secondary concept&quot;,
+      &quot;bs&quot;: &quot;e-enable extensible e-tailers&quot;
+    }
+  },
+  {
+    &quot;id&quot;: 9,
+    &quot;name&quot;: &quot;Glenna Reichert&quot;,
+    &quot;username&quot;: &quot;Delphine&quot;,
+    &quot;email&quot;: &quot;Chaim_McDermott@dana.io&quot;,
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;Dayna Park&quot;,
+      &quot;suite&quot;: &quot;Suite 449&quot;,
+      &quot;city&quot;: &quot;Bartholomebury&quot;,
+      &quot;zipcode&quot;: &quot;76495-3109&quot;,
+      &quot;geo&quot;: {
+        &quot;lat&quot;: &quot;24.6463&quot;,
+        &quot;lng&quot;: &quot;-168.8889&quot;
+      }
+    },
+    &quot;phone&quot;: &quot;(775)976-6794 x41206&quot;,
+    &quot;website&quot;: &quot;conrad.com&quot;,
+    &quot;company&quot;: {
+      &quot;name&quot;: &quot;Yost and Sons&quot;,
+      &quot;catchPhrase&quot;: &quot;Switchable contextually-based project&quot;,
+      &quot;bs&quot;: &quot;aggregate real-time technologies&quot;
+    }
+  },
+  {
+    &quot;id&quot;: 10,
+    &quot;name&quot;: &quot;Clementina DuBuque&quot;,
+    &quot;username&quot;: &quot;Moriah.Stanton&quot;,
+    &quot;email&quot;: &quot;Rey.Padberg@karina.biz&quot;,
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;Kattie Turnpike&quot;,
+      &quot;suite&quot;: &quot;Suite 198&quot;,
+      &quot;city&quot;: &quot;Lebsackbury&quot;,
+      &quot;zipcode&quot;: &quot;31428-2261&quot;,
+      &quot;geo&quot;: {
+        &quot;lat&quot;: &quot;-38.2386&quot;,
+        &quot;lng&quot;: &quot;57.2232&quot;
+      }
+    },
+    &quot;phone&quot;: &quot;024-648-3804&quot;,
+    &quot;website&quot;: &quot;ambrose.net&quot;,
+    &quot;company&quot;: {
+      &quot;name&quot;: &quot;Hoeger LLC&quot;,
+      &quot;catchPhrase&quot;: &quot;Centralized empowering task-force&quot;,
+      &quot;bs&quot;: &quot;target end-to-end models&quot;
+    }
+  }
+]
+
+</pre>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-Then passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">status 200</span>
+
+  <span class="lead-duration duration">0.000</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-* passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def first = response[0]</span>
+
+  <span class="lead-duration duration">0.009</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-Given passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">path 'users', first.id</span>
+
+  <span class="lead-duration duration">0.007</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-When passed">
+  <span class="keyword indention">When</span>
+  <span class="name">method get</span>
+
+  <span class="lead-duration duration">0.104</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+  <div class="inner-level">
+    <div class="docstring indention">
+      <div data-toggle="collapse" class="collapsable-control" data-target="#msg-7">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-7" class="collapse collapsable-details">
+        <pre>23:06:09.282 request:
+2 &gt; GET https://jsonplaceholder.typicode.com/users/1
+2 &gt; Host: jsonplaceholder.typicode.com
+2 &gt; Connection: Keep-Alive
+2 &gt; User-Agent: Apache-HttpClient/4.5.13 (Java/11.0.14)
+2 &gt; Accept-Encoding: gzip,deflate
+
+
+23:06:09.378 response time in milliseconds: 95
+2 &lt; 200
+2 &lt; Date: Sat, 18 Mar 2023 23:06:09 GMT
+2 &lt; Content-Type: application/json; charset=utf-8
+2 &lt; Transfer-Encoding: chunked
+2 &lt; Connection: keep-alive
+2 &lt; X-Powered-By: Express
+2 &lt; X-Ratelimit-Limit: 1000
+2 &lt; X-Ratelimit-Remaining: 999
+2 &lt; X-Ratelimit-Reset: 1672427541
+2 &lt; Vary: Origin, Accept-Encoding
+2 &lt; Access-Control-Allow-Credentials: true
+2 &lt; Cache-Control: max-age=43200
+2 &lt; Pragma: no-cache
+2 &lt; Expires: -1
+2 &lt; X-Content-Type-Options: nosniff
+2 &lt; Etag: W/&quot;1fd-+2Y3G3w049iSZtw5t1mzSnunngE&quot;
+2 &lt; Via: 1.1 vegur
+2 &lt; CF-Cache-Status: HIT
+2 &lt; Age: 9206
+2 &lt; Server-Timing: cf-q-config;dur=7.0000023697503e-06
+2 &lt; Report-To: {&quot;endpoints&quot;:[{&quot;url&quot;:&quot;https:\/\/a.nel.cloudflare.com\/report\/v3?s=xUid88clhSdPPHfrdEDl6pwxJ%2FNb0rYSxgF5ssupwhXqsX1AdUKiYhgLcEK2XAGn%2BRaCqC9TqCSFAEdFQ5ZhvF8AyyrA6sHaiOLnJPNfta%2FVNwgBmqeOWHkqY%2BQS%2F4Ye9VubgojRLqcsIemqLzui&quot;}],&quot;group&quot;:&quot;cf-nel&quot;,&quot;max_age&quot;:604800}
+2 &lt; NEL: {&quot;success_fraction&quot;:0,&quot;report_to&quot;:&quot;cf-nel&quot;,&quot;max_age&quot;:604800}
+2 &lt; Server: cloudflare
+2 &lt; CF-RAY: 7aa11fe0bd0360e6-DUB
+2 &lt; alt-svc: h3=&quot;:443&quot;; ma=86400, h3-29=&quot;:443&quot;; ma=86400
+{
+  &quot;id&quot;: 1,
+  &quot;name&quot;: &quot;Leanne Graham&quot;,
+  &quot;username&quot;: &quot;Bret&quot;,
+  &quot;email&quot;: &quot;Sincere@april.biz&quot;,
+  &quot;address&quot;: {
+    &quot;street&quot;: &quot;Kulas Light&quot;,
+    &quot;suite&quot;: &quot;Apt. 556&quot;,
+    &quot;city&quot;: &quot;Gwenborough&quot;,
+    &quot;zipcode&quot;: &quot;92998-3874&quot;,
+    &quot;geo&quot;: {
+      &quot;lat&quot;: &quot;-37.3159&quot;,
+      &quot;lng&quot;: &quot;81.1496&quot;
+    }
+  },
+  &quot;phone&quot;: &quot;1-770-736-8031 x56442&quot;,
+  &quot;website&quot;: &quot;hildegard.org&quot;,
+  &quot;company&quot;: {
+    &quot;name&quot;: &quot;Romaguera-Crona&quot;,
+    &quot;catchPhrase&quot;: &quot;Multi-layered client-server neural-net&quot;,
+    &quot;bs&quot;: &quot;harness real-time e-markets&quot;
+  }
+}
+
+</pre>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-Then passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">status 200</span>
+
+  <span class="lead-duration duration">0.000</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+  </div>
+</div>
+
+
+
+
+
+  </div>
+</div>
+
+
+<div class="element">
+
+
+<div class="tags indention">
+</div>
+
+
+  <span class="lead-duration duration">0.004</span>
+
+
+  <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-8">
+
+<div class="brief passed">
+  <span class="keyword indention">Background</span>
+  <span class="name"></span>
+
+
+     <i class="chevron fa fa-fw"></i>
+</div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-8" class="collapse collapsable-details ">
+
+
+
+
+
+<div class="steps inner-level">
+  <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-9">
+
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+
+
+     <i class="chevron fa fa-fw"></i>
+</div>
+
+  </div>
+
+  <div id="steps-9" class="inner-level collapse collapsable-details ">
+      <div class="step">
+
+
+<div class="brief step-name-* passed">
+  <span class="keyword indention">*</span>
+  <span class="name">url 'https://jsonplaceholder.typicode.com'</span>
+
+  <span class="lead-duration duration">0.004</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+  <div class="inner-level">
+    <div class="docstring indention">
+      <div data-toggle="collapse" class="collapsable-control" data-target="#msg-10">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-10" class="collapse collapsable-details">
+        <pre>23:06:08.386 karate.env system property was: null 
+</pre>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+      </div>
+  </div>
+</div>
+
+
+
+
+
+  </div>
+</div>
+
+
+<div class="element">
+
+
+<div class="tags indention">
+</div>
+
+
+  <span class="lead-duration duration">0.950</span>
+
+
+  <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-11">
+
+<div class="brief passed">
+  <span class="keyword indention">Scenario</span>
+  <span class="name">create a user and then get it by id</span>
+
+
+     <i class="chevron fa fa-fw"></i>
+</div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-11" class="collapse collapsable-details ">
+
+
+
+
+
+<div class="steps inner-level">
+  <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-12">
+
+<div class="brief passed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+
+
+     <i class="chevron fa fa-fw"></i>
+</div>
+
+  </div>
+
+  <div id="steps-12" class="inner-level collapse collapsable-details ">
+      <div class="step">
+
+
+<div class="brief step-name-* passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def user =</span>
+
+  <span class="lead-duration duration">0.076</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+  <div class="inner-level">
+    <div class="docstring indention">
+      <div data-toggle="collapse" class="collapsable-control" data-target="#msg-13">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-13" class="collapse collapsable-details">
+        <pre>{
+  &quot;name&quot;: &quot;Test User&quot;,
+  &quot;username&quot;: &quot;testuser&quot;,
+  &quot;email&quot;: &quot;test@user.com&quot;,
+  &quot;address&quot;: {
+    &quot;street&quot;: &quot;Has No Name&quot;,
+    &quot;suite&quot;: &quot;Apt. 123&quot;,
+    &quot;city&quot;: &quot;Electri&quot;,
+    &quot;zipcode&quot;: &quot;54321-6789&quot;
+  }
+}</pre>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-Given passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">url 'https://jsonplaceholder.typicode.com/users'</span>
+
+  <span class="lead-duration duration">0.003</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-And passed">
+  <span class="keyword indention">And</span>
+  <span class="name">request user</span>
+
+  <span class="lead-duration duration">0.006</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-When passed">
+  <span class="keyword indention">When</span>
+  <span class="name">method post</span>
+
+  <span class="lead-duration duration">0.860</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+  <div class="inner-level">
+    <div class="docstring indention">
+      <div data-toggle="collapse" class="collapsable-control" data-target="#msg-14">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-14" class="collapse collapsable-details">
+        <pre>23:06:08.845 request:
+1 &gt; POST https://jsonplaceholder.typicode.com/users
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 160
+1 &gt; Host: jsonplaceholder.typicode.com
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.13 (Java/11.0.14)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;name&quot;:&quot;Test User&quot;,&quot;username&quot;:&quot;testuser&quot;,&quot;email&quot;:&quot;test@user.com&quot;,&quot;address&quot;:{&quot;street&quot;:&quot;Has No Name&quot;,&quot;suite&quot;:&quot;Apt. 123&quot;,&quot;city&quot;:&quot;Electri&quot;,&quot;zipcode&quot;:&quot;54321-6789&quot;}}
+
+23:06:09.429 response time in milliseconds: 583
+1 &lt; 201
+1 &lt; Date: Sat, 18 Mar 2023 23:06:09 GMT
+1 &lt; Content-Type: application/json; charset=utf-8
+1 &lt; Content-Length: 216
+1 &lt; Connection: keep-alive
+1 &lt; X-Powered-By: Express
+1 &lt; X-Ratelimit-Limit: 1000
+1 &lt; X-Ratelimit-Remaining: 999
+1 &lt; X-Ratelimit-Reset: 1679180804
+1 &lt; Vary: Origin, X-HTTP-Method-Override, Accept-Encoding
+1 &lt; Access-Control-Allow-Credentials: true
+1 &lt; Cache-Control: no-cache
+1 &lt; Pragma: no-cache
+1 &lt; Expires: -1
+1 &lt; Access-Control-Expose-Headers: Location
+1 &lt; Location: http://jsonplaceholder.typicode.com/users/11
+1 &lt; X-Content-Type-Options: nosniff
+1 &lt; Etag: W/&quot;d8-pYV7+YuMGP2hxHPU9ARrf97ifDA&quot;
+1 &lt; Via: 1.1 vegur
+1 &lt; CF-Cache-Status: DYNAMIC
+1 &lt; Server-Timing: cf-q-config;dur=5.0000089686364e-06
+1 &lt; Report-To: {&quot;endpoints&quot;:[{&quot;url&quot;:&quot;https:\/\/a.nel.cloudflare.com\/report\/v3?s=oiZgFGV4B%2FAz3KUc5huYnZYGOaqBtKMkpe4hSsY8TXY9iz68iQ02aHoDkGcztKBiExHPa%2FtKe0spD80eriPZDcZHr5Ndzbylcg8SvxyEHhZ0YDrzpRfFSmiQZDT2UT%2FvBXlYOXYXcfr63bz%2FRXJ%2B&quot;}],&quot;group&quot;:&quot;cf-nel&quot;,&quot;max_age&quot;:604800}
+1 &lt; NEL: {&quot;success_fraction&quot;:0,&quot;report_to&quot;:&quot;cf-nel&quot;,&quot;max_age&quot;:604800}
+1 &lt; Server: cloudflare
+1 &lt; CF-RAY: 7aa11fdfcf299558-DUB
+1 &lt; alt-svc: h3=&quot;:443&quot;; ma=86400, h3-29=&quot;:443&quot;; ma=86400
+{
+  &quot;name&quot;: &quot;Test User&quot;,
+  &quot;username&quot;: &quot;testuser&quot;,
+  &quot;email&quot;: &quot;test@user.com&quot;,
+  &quot;address&quot;: {
+    &quot;street&quot;: &quot;Has No Name&quot;,
+    &quot;suite&quot;: &quot;Apt. 123&quot;,
+    &quot;city&quot;: &quot;Electri&quot;,
+    &quot;zipcode&quot;: &quot;54321-6789&quot;
+  },
+  &quot;id&quot;: 11
+}
+
+</pre>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-Then passed">
+  <span class="keyword indention">Then</span>
+  <span class="name">status 201</span>
+
+  <span class="lead-duration duration">0.000</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-* passed">
+  <span class="keyword indention">*</span>
+  <span class="name">def id = response.id</span>
+
+  <span class="lead-duration duration">0.001</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-* passed">
+  <span class="keyword indention">*</span>
+  <span class="name">print 'created id is: ', id</span>
+
+  <span class="lead-duration duration">0.001</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+  <div class="inner-level">
+    <div class="docstring indention">
+      <div data-toggle="collapse" class="collapsable-control" data-target="#msg-15">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-15" class="collapse collapsable-details">
+        <pre>23:06:09.435 [print] created id is:  11 
+</pre>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-Given passed">
+  <span class="keyword indention">Given</span>
+  <span class="name">path id</span>
+
+  <span class="lead-duration duration">0.000</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+  </div>
+</div>
+
+
+
+
+
+  </div>
+</div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-1 col-md-offset-10">
+      <i class="fa fa-chevron-circle-down fa-2x collapsable-control"
+        onClick="javascript:$('#report .collapsable-details').collapse('show')"></i>
+      <i class="fa fa-chevron-circle-up fa-2x collapsable-control"
+        onClick="javascript:$('#report .collapsable-details').collapse('hide')"></i>
+    </div>
+  </div>
+</div>
+
+<br/>
+
+<nav class="navbar navbar-default" id="footer">
+  <div class="container-fluid">
+    <p class="navbar-text navbar-right">
+        <small>generate Cucumber HTML reports via:&nbsp;</small>
+        <a class="navbar-link" href="https://github.com/jenkinsci/cucumber-reports-plugin">Jenkins Plugin</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-reporting">Standalone</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-sandwich">Sandwich</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/maven-cucumber-reporting">Maven</a>
+        &nbsp;&nbsp;
+    </p>
+  </div>
+</nav>
+
+</body>
+</html>
