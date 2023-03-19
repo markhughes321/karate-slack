@@ -1,0 +1,17 @@
+target
+.vscode
+src/test/java/resources/helpers/tokens.json
+src/test/java/resources/helpers/new-user.json
+.env
+.DS_Store
+target/
+.idea
+.project
+.settings
+.classpath
+.vscode
+.java-version
+build/
+bin/
+.gradle
+node_modules

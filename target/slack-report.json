@@ -1,9 +1,0 @@
-{
-  "blocks" : [ {
-    "type" : "section",
-    "text" : {
-      "type" : "mrkdwn",
-      "text" : "elapsed:   6.35 | threads:    8 | thread time: 1.94"
-    }
-  } ]
-}

@@ -2,17 +2,17 @@ package examples;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class PrintKarateReports {
-
-    public static void main(String[] args) {
-        printReports();
-    }
 
     public static void printReports() {
         String karateReportsPath = "target/karate-reports";
@@ -44,12 +44,28 @@ public class PrintKarateReports {
         slackBlocks.add(slackBlock);
         slackJson.set("blocks", slackBlocks);
 
-        // Write Slack report JSON object to file
-        File slackReportFile = new File("target/slack-report.json");
+        // Convert Slack report JSON object to string
+        String slackJsonString;
         try {
-            mapper.writerWithDefaultPrettyPrinter().writeValue(slackReportFile, slackJson);
+            slackJsonString = mapper.writeValueAsString(slackJson);
         } catch (IOException e) {
-            throw new RuntimeException("Failed to write Slack report to file.", e);
+            throw new RuntimeException("Failed to convert Slack report to JSON string.", e);
+        }
+
+        // Send Slack report as HTTP POST request to Slack webhook URL using OkHttp
+        String slackWebhookUrl = "https://hooks.slack.com/services/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";
+        OkHttpClient client = new OkHttpClient();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, slackJsonString);
+        Request request = new Request.Builder()
+          .url(slackWebhookUrl)
+          .post(body)
+          .build();
+        try {
+            Response response = client.newCall(request).execute();
+            System.out.println("Slack report sent. Response: " + response.body().string());
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to send Slack report as HTTP POST request.", e);
         }
     }
 }

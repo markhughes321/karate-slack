@@ -22,7 +22,6 @@ public class TestParallel {
                 .parallel(8);
         generateReport(results.getReportDir());
         assertEquals(0, results.getFailCount(), results.getErrorMessages());
-        PrintKarateReports.printReports();
     }
 
     public static void generateReport(String karateOutputPath) {
@@ -32,6 +31,7 @@ public class TestParallel {
         Configuration config = new Configuration(new File("target"), "API Testing - Websites");
         ReportBuilder reportBuilder = new ReportBuilder(jsonPaths, config);
         reportBuilder.generateReports();
+        PrintKarateReports.printReports();
     }
 
 }
