@@ -3,58 +3,53 @@ package examples;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class PrintKarateReports {
 
+    public static void main(String[] args) {
+        printReports();
+    }
+
     public static void printReports() {
         String karateReportsPath = "target/karate-reports";
-        File karateReportsFolder = new File(karateReportsPath);
-        if (!karateReportsFolder.exists() || !karateReportsFolder.isDirectory()) {
-            System.out.println("No Karate reports found at " + karateReportsPath);
-            return;
-        }
-        System.out.println("Karate reports found at " + karateReportsPath + ":");
-        for (File file : karateReportsFolder.listFiles()) {
+        File[] karateReportsFiles = new File(karateReportsPath).listFiles();
+
+        // Loop through files in Karate reports folder and print their names
+        for (File file : karateReportsFiles) {
             System.out.println("- " + file.getName());
         }
 
-        // Read contents of Karate report file
-        String summaryFilePath = karateReportsPath + "/karate-summary-json.txt";
-        File summaryFile = new File(summaryFilePath);
-        if (summaryFile.exists()) {
-            try {
-                String reportContents = new String(Files.readAllBytes(summaryFile.toPath()));
-                System.out.println("Karate report contents:\n" + reportContents);
+        // Create Slack report JSON object with Slack block
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode slackJson = mapper.createObjectNode();
 
-                // Convert report contents to JSON object
-                ObjectMapper mapper = new ObjectMapper();
-                JsonNode reportJson = mapper.readTree(reportContents);
+        // Create Slack block object
+        ObjectNode slackBlock = mapper.createObjectNode();
+        slackBlock.put("type", "section");
 
-                // Create Slack report JSON object with report contents in attachments array
-                ObjectNode slackJson = mapper.createObjectNode();
-                slackJson.put("channel", "CBR2V3XEX");
-                ArrayNode attachments = mapper.createArrayNode();
-                ObjectNode attachment = mapper.createObjectNode();
-                attachment.setAll((ObjectNode) reportJson);
-                attachments.add(attachment);
-                slackJson.set("attachments", attachments);
+        // Create Slack text object
+        ObjectNode slackText = mapper.createObjectNode();
+        slackText.put("type", "mrkdwn");
+        slackText.put("text", "elapsed:   6.35 | threads:    8 | thread time: 1.94");
 
-                // Write Slack report JSON object to file
-                File slackReportFile = new File("target/slack-report.json");
-                mapper.writerWithDefaultPrettyPrinter().writeValue(slackReportFile, slackJson);
-                System.out.println("Slack report generated at " + slackReportFile.getAbsolutePath());
-            } catch (IOException e) {
-                System.out.println("Failed to read or write report: " + e.getMessage());
-            }
-        } else {
-            System.out.println("Karate report file not found");
+        // Add Slack text object to Slack block object
+        slackBlock.set("text", slackText);
+
+        // Add Slack block object to Slack report JSON object
+        ArrayNode slackBlocks = mapper.createArrayNode();
+        slackBlocks.add(slackBlock);
+        slackJson.set("blocks", slackBlocks);
+
+        // Write Slack report JSON object to file
+        File slackReportFile = new File("target/slack-report.json");
+        try {
+            mapper.writerWithDefaultPrettyPrinter().writeValue(slackReportFile, slackJson);
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to write Slack report to file.", e);
         }
     }
 }
