@@ -41,5 +41,5 @@ jobs:
         with:
           payload-file-path: './target/slack-report.json'
         env:
-          SLACK_WEBHOOK_URL: 'https://hooks.slack.com/services/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'
+          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
 
