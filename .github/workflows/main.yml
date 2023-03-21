@@ -16,10 +16,26 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
           cache: 'maven'
-
-      - name: Install dependencies
-        run: npm install
           
+      - name: Run Karate API Tests
+        run: mvn clean test
+        
+      - name: Show Workspace Directory
+        run: echo ${{ github.workspace }}
+        
+      - name: Karate DSL upload reports
+        uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: Test Reports
+          path: | 
+            ./target
+            
+      - name: Print all files
+        run: |
+          find . -type f -exec ls -la {} \;
+
+
       - name: Run Karate API Tests
         run: mvn clean test
 
