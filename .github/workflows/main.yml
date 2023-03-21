@@ -20,6 +20,12 @@ jobs:
       - name: Run Karate API Tests
         run: mvn clean test
         
+      - name: Install Deps
+        run: npm install
+
+      - name: Run Slack Report
+        run: npm run slack-report   
+     
       - name: Show Workspace Directory
         run: echo ${{ github.workspace }}
         
@@ -34,10 +40,4 @@ jobs:
       - name: Print all files
         run: |
           find . -type f -exec ls -la {} \;
-
-
-      - name: Run Karate API Tests
-        run: mvn clean test
-
-      - name: Run Slack Report
-        run: npm run slack-report
+          
