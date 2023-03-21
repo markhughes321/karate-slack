@@ -16,30 +16,12 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
           cache: 'maven'
+
+      - name: Install dependencies
+        run: npm install
           
       - name: Run Karate API Tests
         run: mvn clean test
-        
-      - name: Show Workspace Directory
-        run: echo ${{ github.workspace }}
-        
-      - name: Karate DSL upload reports
-        uses: actions/upload-artifact@v2
-        if: ${{ always() }}
-        with:
-          name: Test Reports
-          path: | 
-            ./target
-            
-      - name: Print all files
-        run: |
-          find . -type f -exec ls -la {} \;
-          
-      - name: Send custom JSON data to Slack workflow
-        id: slack
-        uses: slackapi/slack-github-action@v1.23.0
-        with:
-          payload-file-path: './target/slack-report.json'
-        env:
-          SLACK_WEBHOOK_URL: 'https://hooks.slack.com/services/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'
 
+      - name: Run Slack Report
+        run: npm run slack-report

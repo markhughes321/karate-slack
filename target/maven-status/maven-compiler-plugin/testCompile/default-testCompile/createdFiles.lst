@@ -1,3 +1,2 @@
 examples/users/UsersRunner.class
-examples/PrintKarateReports.class
-examples/TestParallel.class
+TestParallel.class
