@@ -1,5 +1,6 @@
 const fs = require('fs');
 const axios = require('axios');
+require('dotenv').config();
 
 function createSlackReport(textFilePath, jsonFilePath) {
   const textData = fs.readFileSync(textFilePath, 'utf8');
