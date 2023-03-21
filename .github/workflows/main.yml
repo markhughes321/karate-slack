@@ -24,7 +24,9 @@ jobs:
         run: npm install
 
       - name: Run Slack Report
-        run: npm run slack-report   
+        run: npm run slack-report
+          env:
+            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
      
       - name: Show Workspace Directory
         run: echo ${{ github.workspace }}
