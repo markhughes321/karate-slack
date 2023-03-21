@@ -47,11 +47,12 @@ function createSlackReport(textFilePath, jsonFilePath) {
 
   fs.writeFileSync(jsonFilePath, JSON.stringify(slackJsonData, null, 2), 'utf8');
 
-  axios.post('https://hooks.slack.com/services/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', slackJsonData)
+const webhookUrl = process.env.SLACK_WEBHOOK_URL;
+  axios.post(webhookUrl, slackJsonData)
     .then(res => console.log('Slack notification sent successfully'))
     .catch(err => console.error('Failed to send Slack notification:', err));
 }
 
 const textFilePath = 'target/karate-reports/karate-summary-json.txt';
-const jsonFilePath = 'target/karate-reports/slack-block.json';
+const jsonFilePath = 'target/slack-block.json';
 createSlackReport(textFilePath, jsonFilePath);
